@@ -1,11 +1,25 @@
 ﻿using System;
-using calculation;
 using System.Reflection;
+using calculation;
 
-namespace calc_cli
+namespace calculation.cli
 {
-    class Program
+    class CalcCLI
     {
+
+        static void Main(string[] args)
+        {
+            var calc = new calculate();
+            Console.WriteLine("Sum two numbers");
+            Console.Write("A: ");
+            int a = Convert.ToInt32(Console.ReadLine());
+            Console.Write("B: ");
+            int b = Convert.ToInt32(Console.ReadLine());
+            var result = calc.Sum(a,b);
+            Console.WriteLine($"{a} + {b} = {result}");
+        }
+    }
+
         static void reflect(){
             // get all public static methods of MyClass type
             MethodInfo[] methodInfos = typeof(calculate).GetMethods(BindingFlags.Public | BindingFlags.Static);
@@ -21,24 +35,10 @@ namespace calc_cli
             }
 
         }
-        static void Main(string[] args)
-        {
-            Program.reflect();
-        }
-
         static void Main1(string[] args)
         {
-
-            Program.reflect();
-
-            var calc = new calculate();
-            Console.WriteLine("Sum two numbers");
-            Console.Write("A: ");
-            int a = Convert.ToInt32(Console.ReadLine());
-            Console.Write("B: ");
-            int b = Convert.ToInt32(Console.ReadLine());
-            var result = calc.Sum(a,b);
-            Console.WriteLine($"{a} + {b} = {result}");
+            CalcCLI.reflect();
         }
-    }
+
+
 }
