@@ -148,3 +148,4 @@ x64
 * [how-to-reload-native-plugins-in-unity](https://www.forrestthewoods.com/blog/how-to-reload-native-plugins-in-unity/)
 * [dotnet on linux](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu)
 * [dotnet commands](https://softchris.github.io/pages/dotnet-10-commands.html)
+* [how-to-write-native-plugins-for-unity](http://www.alanzucconi.com/2015/10/11/how-to-write-native-plugins-for-unity/)

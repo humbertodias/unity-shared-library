@@ -4,6 +4,11 @@ calc-lib
 dotnet new classlib -o calc-lib
 ```
 
+calc-lib
+```
+make so-all
+```
+
 calc-cli
 
 ```sh

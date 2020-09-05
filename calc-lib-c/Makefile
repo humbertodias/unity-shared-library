@@ -27,7 +27,7 @@ so-arm:
 	$(MAKE) CC=arm-linux-gnueabi-gcc so && \
 	mv *.so build/arm
 
-so-all:	so-arm	so-x86	so-x64
+so-all:	so-arm	so-x64
 	cp -r build/ ../calc-cli-unity/Assets/Plugins/calc
 
 pic:
