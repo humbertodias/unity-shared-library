@@ -2,7 +2,7 @@
 
 namespace calculation
 {
-    public class calculate
+    public class Calculate
     {
         public int Sum(int a, int b){
             return a+b;

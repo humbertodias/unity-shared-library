@@ -7,9 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-  <Reference Include="MyAssembly">
-    <HintPath>../calc-lib/bin/Debug/netcoreapp3.1/calc-lib.dll</HintPath>
-  </Reference>
-</ItemGroup>
+    <ProjectReference Include="..\calc-lib\calc-lib.csproj" />
+  </ItemGroup>
 
 </Project>

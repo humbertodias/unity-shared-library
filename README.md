@@ -12,12 +12,15 @@ Ubuntu
 
 ```bash
 sudo apt update && \
-sudo apt install -y apt-transport-https dotnet-sdk-3.1
+sudo apt install -y apt-transport-https dotnet-sdk-3.1 nuget
 ```
 
 # Steps
 
 1. Library
+
+
+* C#
 
 ```bash
 cd calc-lib
@@ -31,7 +34,7 @@ using System;
 
 namespace calculation
 {
-    public class calculate
+    public class Calculate
     {
         public int Sum(int a, int b){
             return a+b;
@@ -39,6 +42,33 @@ namespace calculation
     }
 }
 ```
+
+* C
+
+```bash
+cd calc-lib-c
+make
+```
+
+[calc.h](calc-lib-c/calc.h)
+
+
+```c
+#ifdef calc_h__
+#define calc_h__
+
+export int sum(int a,int b);
+
+#endif calc_h__
+```
+
+[calc.c](calc-lib-c/calc.c)
+```c
+int sum(int a,int b){
+    return a+b;
+}
+```
+
 
 2. Client (Console)
 
@@ -57,16 +87,17 @@ namespace calculation.cli
 {
     class CalcCLI
     {
-
         static void Main(string[] args)
         {
-            var calc = new calculate();
             Console.WriteLine("Sum two numbers");
             Console.Write("A: ");
             int a = Convert.ToInt32(Console.ReadLine());
             Console.Write("B: ");
             int b = Convert.ToInt32(Console.ReadLine());
+
+            var calc = new Calculate();
             var result = calc.Sum(a,b);
+            
             Console.WriteLine($"{a} + {b} = {result}");
         }
     }
@@ -86,7 +117,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using calculation;
 
-public class CalcCliUnity : MonoBehaviour
+public class CalcCLIUnity : MonoBehaviour
 {
     public InputField inputA, inputB;
     public Text result;
@@ -103,6 +134,12 @@ public class CalcCliUnity : MonoBehaviour
 
 ![](unity-play.png)
 
+Android 
+
+ARM
+![](libcalc-arm.png)
+x64
+![](libcalc-x64.png)
 
 # Ref
 
@@ -110,3 +147,4 @@ public class CalcCliUnity : MonoBehaviour
 * [loading-native-libraries-in-c#](https://dev.to/jeikabu/loading-native-libraries-in-c-fh6)
 * [how-to-reload-native-plugins-in-unity](https://www.forrestthewoods.com/blog/how-to-reload-native-plugins-in-unity/)
 * [dotnet on linux](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu)
+* [dotnet commands](https://softchris.github.io/pages/dotnet-10-commands.html)
